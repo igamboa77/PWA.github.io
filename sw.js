@@ -14,8 +14,8 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith((async () => {
+    console.log(event.request);
     const cache = await caches.open(CACHE_NAME);
-
     // Obtenga el recurso del caché.
     const cachedResponse = await cache.match(event.request);
     if (cachedResponse) {
